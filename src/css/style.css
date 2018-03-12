@@ -373,7 +373,7 @@ header.top h3:after {
   -webkit-transform: translateX(-50%) rotateY(10deg) translateX(50%) scale(1.08) translateX(24px);
           transform: translateX(-50%) rotateY(10deg) translateX(50%) scale(1.08) translateX(24px);
 }
-input#fold:not(:checked) ~ #main .catch-of-the-day > * {
+input#fold:not(:checked) ~ #root .catch-of-the-day > * {
   -webkit-transform: none;
           transform: none;
 }

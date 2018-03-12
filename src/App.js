@@ -4,9 +4,19 @@ import './App.css';
 import Header from './components/Header';
 import Order from './components/Order';
 import Inventory from './components/Inventory';
-// import StorePicker from './components/store-picker';
 
 class App extends Component { 
+  state = {
+    products: {},
+    order: {}
+  };
+
+  addProduct = (product) => {
+    const products = {...this.state.products};
+    products[`product${Date.now()}`] = product;
+    this.setState({products});
+  }
+
   render() {
     return (
       <div className="catch-of-the-day">
@@ -14,7 +24,7 @@ class App extends Component {
           <Header tagline="Fresh Seefood Market" />
         </div>
           <Order/>
-          <Inventory/>
+          <Inventory addProduct={this.addProduct}/>
         {/* <StorePicker /> */}
       </div>
     );
