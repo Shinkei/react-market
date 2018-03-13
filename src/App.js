@@ -4,6 +4,7 @@ import './App.css';
 import Header from './components/Header';
 import Order from './components/Order';
 import Inventory from './components/Inventory';
+import Product from './components/Product';
 import sampleProducts from './sample-products';
 
 class App extends Component { 
@@ -27,10 +28,12 @@ class App extends Component {
       <div className="catch-of-the-day">
         <div className="menu">
           <Header tagline="Fresh Seefood Market" />
+          <ul className="fishes">
+            {Object.keys(this.state.products).map(key => <Product key={key} product={this.state.products[key]}/>)}
+          </ul>
         </div>
           <Order/>
           <Inventory addProduct={this.addProduct} loadSampleProducts={this.loadSampleProducts}/>
-        {/* <StorePicker /> */}
       </div>
     );
   }
