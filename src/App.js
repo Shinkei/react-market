@@ -44,7 +44,7 @@ class App extends Component {
             )}
           </ul>
         </div>
-          <Order/>
+          <Order products={this.state.products} order={this.state.order}/>
           <Inventory addProduct={this.addProduct} loadSampleProducts={this.loadSampleProducts}/>
       </div>
     );
