@@ -85,6 +85,7 @@ class App extends Component {
             products={this.state.products}
             updateProduct={this.updateProduct}
             deleteProduct={this.deleteProduct}
+            storeId={this.props.match.params.storeid}
           />
       </div>
     );
