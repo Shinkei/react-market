@@ -36,6 +36,12 @@ class App extends Component {
     this.setState({products}); // update only the products object
   }
 
+  updateProduct = (key, product) => {
+    const products = {...this.state.products};
+    products[key] = product;
+    this.setState({products});
+  }
+
   loadSampleProducts = () => {
     this.setState({products: sampleProducts});
   }
@@ -62,7 +68,7 @@ class App extends Component {
           </ul>
         </div>
           <Order products={this.state.products} order={this.state.order}/>
-          <Inventory addProduct={this.addProduct} loadSampleProducts={this.loadSampleProducts}/>
+          <Inventory addProduct={this.addProduct} loadSampleProducts={this.loadSampleProducts} products={this.state.products} updateProduct={this.updateProduct}/>
       </div>
     );
   }
