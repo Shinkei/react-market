@@ -15,7 +15,15 @@ class App extends Component {
   };
 
   componentDidMount(){
+    const localStorageRef = localStorage.getItem(this.props.match.params.storeid);
+    if(localStorageRef){
+      this.setState({order: JSON.parse(localStorageRef)});
+    }
     this.ref = base.syncState(`${this.props.match.params.storeid}/products`, {context:this, state:'products'});
+  }
+
+  componentDidUpdate(){
+    localStorage.setItem(this.props.match.params.storeid, JSON.stringify(this.state.order));
   }
 
   componentWillUnmount(){

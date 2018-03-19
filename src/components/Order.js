@@ -6,6 +6,9 @@ class Order extends React.Component{
     const product = this.props.products[key];
     const count = this.props.order[key];
     const isAvailable = product && product.status === 'available';
+    if(!product){
+      return null;
+    }
     if(!isAvailable){
       return (
         <li key={key}>
