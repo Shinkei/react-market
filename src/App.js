@@ -6,12 +6,21 @@ import Order from './components/Order';
 import Inventory from './components/Inventory';
 import Product from './components/Product';
 import sampleProducts from './sample-products';
+import base from './base';
 
 class App extends Component { 
   state = {
     products: {},
     order: {}
   };
+
+  componentDidMount(){
+    this.ref = base.syncState(`${this.props.match.params.storeid}/products`, {context:this, state:'products'});
+  }
+
+  componentWillUnmount(){
+    base.removeBinding(this.ref);
+  }
 
   addProduct = (product) => {
     const products = {...this.state.products};

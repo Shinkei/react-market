@@ -8,13 +8,13 @@ class Order extends React.Component{
     const isAvailable = product && product.status === 'available';
     if(!isAvailable){
       return (
-        <li key="key">
+        <li key={key}>
           Sorry {product.name} is no longer available
         </li>
       );
     }
     return (
-      <li>
+      <li key={key}>
         {count} lbs {product.name}
         {formatPrice(count * product.price)}
       </li>
