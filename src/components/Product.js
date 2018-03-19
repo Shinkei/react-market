@@ -1,7 +1,19 @@
 import React from 'react';
 import {formatPrice} from '../helpers';
+import PropTypes from 'prop-types';
 
 class Product extends React.Component{
+  static propTypes = {
+    addToOrder: PropTypes.func,
+    product: PropTypes.shape({
+      status: PropTypes.string,
+      image: PropTypes.string,
+      name: PropTypes.string,
+      price: PropTypes.number,
+      desc: PropTypes.string
+    })
+  };
+
   render(){
     const isAvailable = this.props.product.status === 'available';
     return (
@@ -17,5 +29,6 @@ class Product extends React.Component{
     );
   }
 }
+
 
 export default Product;

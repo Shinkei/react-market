@@ -1,8 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import AddProductForm from './AddProductForm';
 import EditProductForm from './EditProductForm';
 
 class Inventory extends React.Component{
+  static propTypes = {
+    products: PropTypes.object,
+    updateProduct: PropTypes.func,
+    deleteProduct: PropTypes.func,
+    addProduct: PropTypes.func,
+    loadSampleProducts: PropTypes.func
+  }
+
   render(){
     return (
       <div className="inventory">

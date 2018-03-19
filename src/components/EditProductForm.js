@@ -1,7 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class EditProductForm extends React.Component {
-  
+  static propTypes = {
+    product: PropTypes.shape({
+      name: PropTypes.string,
+      price: PropTypes.number,
+      status: PropTypes.string,
+      desc: PropTypes.string,
+      image: PropTypes.string
+    }),
+    updateProduct: PropTypes.func,
+    deleteProduct: PropTypes.func,
+    index: PropTypes.string
+  }
+
   handleOnChange = (event) =>{
     const updatedProduct = {
       ...this.props.product,
