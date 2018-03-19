@@ -7,7 +7,13 @@ class Inventory extends React.Component{
     return (
       <div className="inventory">
         <h2>Inventory</h2>
-        {Object.keys(this.props.products).map(key => <EditProductForm key={key} index={key} product={this.props.products[key]} updateProduct={this.props.updateProduct}/>)}
+        {Object.keys(this.props.products).map(key => (<EditProductForm
+          key={key}
+          index={key}
+          product={this.props.products[key]}
+          updateProduct={this.props.updateProduct}
+          deleteProduct={this.props.deleteProduct}/>)
+          )}
         <AddProductForm addProduct={this.props.addProduct}/>
         <button onClick={this.props.loadSampleProducts}>Load Sample Products</button>
       </div>

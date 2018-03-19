@@ -11,6 +11,10 @@ class EditProductForm extends React.Component {
     };
     this.props.updateProduct(this.props.index, updatedProduct);
   }
+
+  handleDelete = (event) =>{
+    this.props.deleteProduct(this.props.index);
+  }
   
   render(){
     return (
@@ -23,6 +27,7 @@ class EditProductForm extends React.Component {
       </select>
       <textarea type="text" name="desc" onChange={this.handleOnChange} value={this.props.product.desc}/>
       <input type="text" name="image" onChange={this.handleOnChange} value={this.props.product.image}/>
+      <button onClick={this.handleDelete}>Remove Product</button>
       </div>
     );
   }

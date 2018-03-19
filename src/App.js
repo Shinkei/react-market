@@ -42,16 +42,27 @@ class App extends Component {
     this.setState({products});
   }
 
+  deleteProduct = key => {
+    const products = {...this.state.products};
+    products[key] = null;
+    this.setState({products});
+  }
+
   loadSampleProducts = () => {
     this.setState({products: sampleProducts});
   }
-
+  
   addToOrder = (key) => {
     const order = {...this.state.order};
     order[key] = order[key] + 1 || 1;
     this.setState({order});
   }
-
+  
+  deleteFromOrder = key => {
+    const order = {...this.state.order};
+    delete order[key];
+    this.setState({order});
+  }
   render() {
     return (
       <div className="catch-of-the-day">
@@ -67,8 +78,14 @@ class App extends Component {
             )}
           </ul>
         </div>
-          <Order products={this.state.products} order={this.state.order}/>
-          <Inventory addProduct={this.addProduct} loadSampleProducts={this.loadSampleProducts} products={this.state.products} updateProduct={this.updateProduct}/>
+          <Order products={this.state.products} order={this.state.order} deleteFromOrder={this.deleteFromOrder}/>
+          <Inventory 
+            addProduct={this.addProduct}
+            loadSampleProducts={this.loadSampleProducts}
+            products={this.state.products}
+            updateProduct={this.updateProduct}
+            deleteProduct={this.deleteProduct}
+          />
       </div>
     );
   }
